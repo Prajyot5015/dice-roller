@@ -39,9 +39,42 @@
 <body>
     <h1 class="heading">Roll The Dice</h1>
 
-    <img src="./png/default.png" class="dice-img" alt="Dice" />
+    <img src="./png/default.png" class="dice-img" alt="Dice" id="dice-img" />
 
-    <button type="button" class="btn-roll">Roll Dice</button>
+    <button type="button" class="btn-roll" onclick="roll()">Roll Dice</button>
 
+    <script>
+        function roll() {
+            const min = 1;
+            const max = 6;
+
+            const randomNumber = Math.round(Math.random() * (max - min) + min);
+
+            const imgElement = document.getElementById('dice-img');
+
+            switch (randomNumber) {
+                case 1:
+                    imgElement.src = "./png/one.png";
+                    break;
+                case 2:
+                    imgElement.src = "./png/two.png";
+                    break;
+                case 3:
+                    imgElement.src = "./png/three.png";
+                    break;
+                case 4:
+                    imgElement.src = "./png/four.png";
+                    break;
+                case 5:
+                    imgElement.src = "./png/five.png";
+                    break;
+                case 6:
+                    imgElement.src = "./png/six.png";
+                    break;
+                default:
+                    imgElement.src = "./png/default.png";
+            }
+        }
+    </script>
 </body>
 </html>
