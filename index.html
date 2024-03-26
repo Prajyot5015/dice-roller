@@ -20,9 +20,9 @@
             display: block;
             margin: 20px auto;
             width: 300px;
-           
+
         }
-       
+
         .btn-roll {
             font-size: 25px;
             width: 200px;
@@ -35,7 +35,21 @@
             border-radius: 10px;
             cursor: pointer;
         }
-        
+
+        @keyframes roll {
+            0% {
+                transform: rotate(0deg);
+
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate {
+            animation: roll 1s infinite;
+        }
     </style>
 </head>
 
@@ -76,8 +90,13 @@
                     break;
                 default:
                     imgElement.src = "./png/default.png";
-            }     
+            }
+            imgElement.classList.add("animate");
+            setTimeout(() => {
+                imgElement.classList.remove("animate")
+            }, 1000);
         }
     </script>
 </body>
+
 </html>
